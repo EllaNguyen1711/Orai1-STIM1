@@ -8,10 +8,13 @@ AI-based structure prediction (Boltz-2), template-guided loop refinement
 (MODELLER), and CHARMM-GUI/OpenMM molecular dynamics with downstream
 trajectory analysis.
 
-<!--
-TODO: add a representative overview figure here once selected, e.g.:
-![Pipeline overview](docs/figures/overview.png)
--->
+![Boltz-2 model of the Orai1 hexamer bound to twelve STIM1 CAD chains, colored by per-residue pLDDT confidence; top view (left) and side view (right)](docs/figures/orai1_stim1_hexamer_cad_pLDDT.png)
+
+*Boltz-2 prediction of the Orai1 hexamer (chains A–F) bound to twelve copies
+of the STIM1 CRAC-activation domain (CAD, chains G–R), colored by
+per-residue pLDDT confidence (orange = low, blue = high). Top view (left)
+and side view (right). A vector version is available at
+[`docs/figures/orai1_stim1_hexamer_cad_pLDDT.pdf`](docs/figures/orai1_stim1_hexamer_cad_pLDDT.pdf).*
 
 ## Repository layout
 
@@ -20,7 +23,7 @@ TODO: add a representative overview figure here once selected, e.g.:
 ├── 01_boltz2_structure_prediction/   Stage 1 — Boltz-2 structure prediction
 ├── 02_modeller_loop_refinement/      Stage 2 — MODELLER loop rebuild & refinement
 ├── 03_molecular_dynamics/            Stage 3 — CHARMM-GUI system build, OpenMM MD, analysis
-└── docs/figures/                     Figures for this README (added separately)
+└── docs/figures/                     Figures for this README
 ```
 
 Each stage folder has its own `README.md` with details specific to that
