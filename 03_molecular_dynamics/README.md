@@ -2,7 +2,7 @@
 
 The minimized complex from Stage 2 (and related structural variants — see
 below) is embedded in a POPC bilayer with [CHARMM-GUI](https://charmm-gui.org)
-(CHARMM36m force field, CaCl₂-containing solvent), equilibrated and run in
+(CHARMM36 force field, CaCl₂-containing solvent), equilibrated and run in
 production with OpenMM, and analyzed for structural stability, gating-site
 distances, and mutation ΔΔG.
 
@@ -10,12 +10,11 @@ distances, and mutation ΔΔG.
 
 ```
 system/            One folder per CHARMM-GUI-built system (WT_boltz2, WT_refined_loop,
-                    boltz2.pentameric). step5_input.{psf,pdb,crd} are the CHARMM-GUI
-                    structure/topology files (~200 MB each) — NOT tracked in git.
-                    sysinfo.dat (box dimensions) is tracked as a lightweight record.
+                    boltz2.pentameric), including the full CHARMM-GUI
+                    structure/topology files (step5_input.psf/.pdb/.crd, ~200 MB each).
 restraints/        Per-condition restraint definitions (dihe.txt, lipid_pos.txt,
                     prot_pos.txt) for 5 simulation conditions (see below).
-toppar/, toppar.str   CHARMM36m / CGenFF force field files (third-party, see repo-root LICENSE).
+toppar/, toppar.str   CHARMM36 / CGenFF force field files (third-party, see repo-root LICENSE).
 inputs/            CHARMM-GUI OpenMM input decks: step6.1-6.6 (equilibration), step7 (production).
 scripts/           openmm_run.py + omm_*.py (CHARMM-GUI OpenMM driver, unmodified);
                     postprocessing_MD.py, _RMSD.py, _RMSF.py, _Distance.py/distance.py,
@@ -73,10 +72,14 @@ force-switch van der Waals, Langevin thermostat at 303.15 K), run with
 
 ## Data availability
 
-The CHARMM-GUI system files (`system/*/step5_input.{psf,pdb,crd}`, raw
-trajectories, and the two off-cluster restraint conditions' system files)
-are not included in this repository. They can be rebuilt from the Stage 1/2
-structures via the [CHARMM-GUI Membrane Builder](https://charmm-gui.org/?doc=input/membrane.bilayer2component),
+The CHARMM-GUI system files for the three systems above
+(`system/*/step5_input.{psf,pdb,crd}`) are included in this repository. Raw
+trajectories and the system files for the two off-cluster restraint
+conditions (`popc_0.1mCaCl2_seqfixed_180Apadding` and
+`syst_popc-memonly_0.1mMCaCl2_seqfixed[_largepadding]`) are not included —
+those systems were built and simulated on a separate compute cluster and
+are not archived locally. They can be rebuilt from the Stage 1/2 structures
+via the [CHARMM-GUI Membrane Builder](https://charmm-gui.org/?doc=input/membrane.bilayer2component),
 using the same lipid composition and ion concentration recorded in each
 `restraints/<condition>/` set, or made available on request (see repo-root
 README).

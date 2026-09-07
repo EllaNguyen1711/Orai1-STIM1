@@ -22,7 +22,7 @@ SOFTWARE.
 
 ---
 
-Note: the CHARMM36m/CGenFF force field files under
+Note: the CHARMM36/CGenFF force field files under
 `03_molecular_dynamics/toppar/` are third-party files distributed by
 CHARMM-GUI (https://charmm-gui.org) / the MacKerell lab under their own
 academic-use terms and are NOT covered by the MIT license above.

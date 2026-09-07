@@ -84,18 +84,17 @@ are versioned.
 
 The refined complex (and related structures — see below) is built into a
 membrane system with [CHARMM-GUI](https://charmm-gui.org) (POPC bilayer,
-CaCl₂-containing solvent, CHARMM36m force field) and simulated with OpenMM.
+CaCl₂-containing solvent, CHARMM36 force field) and simulated with OpenMM.
 
 - `system/` — one subfolder per CHARMM-GUI-built system (`WT_boltz2`,
-  `WT_refined_loop`, `boltz2.pentameric`). The heavy structure/topology
-  files (`step5_input.psf/.pdb/.crd`, ~200 MB per system) are **not**
-  tracked in git; only `sysinfo.dat` is kept as a record of what was built
-  (see [Data availability](#data-availability-large-files)).
+  `WT_refined_loop`, `boltz2.pentameric`), including the full CHARMM-GUI
+  structure/topology files (`step5_input.psf/.pdb/.crd`, ~200 MB per
+  system).
 - `restraints/` — per-condition restraint definitions (protein position,
   lipid position, dihedral) for five simulation conditions: wild type
   (`boltz2.pentameric`), the Y208A mutant, and three POPC/CaCl₂
   solvation/padding variants.
-- `toppar/`, `toppar.str` — CHARMM36m/CGenFF force field parameter and
+- `toppar/`, `toppar.str` — CHARMM36/CGenFF force field parameter and
   topology files from CHARMM-GUI (third-party; see [License](#license)).
 - `inputs/` — CHARMM-GUI OpenMM input decks for six equilibration stages
   (`step6.1`–`step6.6`) and production (`step7`).
@@ -112,24 +111,26 @@ CaCl₂-containing solvent, CHARMM36m force field) and simulated with OpenMM.
 
 ## Data availability (large files)
 
-This repository intentionally excludes the largest generated files so it
-stays lightweight and fast to clone:
+The CHARMM-GUI-built membrane systems (`03_molecular_dynamics/system/*/step5_input.{psf,pdb,crd}`,
+~200 MB per system) are included in this repository, so cloning it downloads
+roughly 650 MB in total.
 
-- CHARMM-GUI system files (`03_molecular_dynamics/system/*/step5_input.{psf,pdb,crd}`, ~200 MB each)
+Two categories of raw pipeline intermediates are still excluded to keep
+that number from growing further:
+
 - Raw Boltz-2 run output (`01_boltz2_structure_prediction/raw_boltz2_run_output/`)
 - Raw MODELLER candidate models/trace files (`02_modeller_loop_refinement/data/loop_models_chain_*/`)
 
 These can be regenerated from the tracked inputs (Boltz-2 configs, the
-refined/minimized PDBs, and the CHARMM-GUI membrane-builder step) following
-the instructions in each stage's `README.md`. They are also available on
-request — see [Contact](#contact).
+refined/minimized PDBs) following the instructions in each stage's
+`README.md`. They are also available on request — see [Contact](#contact).
 
 ## Software
 
 - [Boltz-2](https://github.com/jwohlwend/boltz) — structure prediction
 - [MODELLER](https://salilab.org/modeller/) — comparative loop modeling
 - [Biopython](https://biopython.org/), [PDBFixer](https://github.com/openmm/pdbfixer), [OpenMM](https://openmm.org/) — structure preparation, minimization, and MD
-- [CHARMM-GUI](https://charmm-gui.org) — membrane system building (CHARMM36m force field)
+- [CHARMM-GUI](https://charmm-gui.org) — membrane system building (CHARMM36 force field)
 - [MDAnalysis](https://www.mdanalysis.org/) — trajectory analysis (RMSD, RMSF, distances)
 - [PyEMMA](http://emma-project.org/) — featurization
 - [FoldX](https://foldxsuite.crg.eu/) — ΔΔG mutation scanning
@@ -139,7 +140,7 @@ request — see [Contact](#contact).
 
 Code in this repository is released under the [MIT License](LICENSE). The
 force field files under `03_molecular_dynamics/toppar/` are third-party
-CHARMM36m/CGenFF parameter files distributed by CHARMM-GUI/the MacKerell
+CHARMM36/CGenFF parameter files distributed by CHARMM-GUI/the MacKerell
 lab under their own academic-use terms and are not covered by this
 repository's license.
 
