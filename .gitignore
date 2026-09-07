@@ -1,0 +1,23 @@
+# --- Python ---
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# --- OS / editor cruft ---
+.DS_Store
+Thumbs.db
+*.swp
+
+# --- Stage 1: raw Boltz-2 run output (MSA search cache, PAE/PDE matrices, logs) ---
+# Final model coordinates + confidence scores are copied into structures/ and ARE tracked.
+01_boltz2_structure_prediction/raw_boltz2_run_output/
+
+# --- Stage 2: raw MODELLER candidate loop models / trace files ---
+# Only the best pose per chain (data/chain_*_loop_best.pdb) is tracked.
+02_modeller_loop_refinement/data/loop_models_chain_*/
+
+# --- Stage 3: heavy CHARMM-GUI system files (~200 MB each) ---
+# sysinfo.dat is tracked as a lightweight record of what was built.
+03_molecular_dynamics/system/*/step5_input.psf
+03_molecular_dynamics/system/*/step5_input.pdb
+03_molecular_dynamics/system/*/step5_input.crd

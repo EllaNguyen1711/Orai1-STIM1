@@ -1,0 +1,59 @@
+version: 1
+sequences:
+  - protein:
+      id: [A, B, C, D, E, F]
+      sequence: TYPDWIGQSYSEVMSLNEHSMQALSWRKLYLSRAKLKASSRTSALLSGFAMVAMVEVQLDADHDYPPGLLIAFSACTTVLVAVHLFALMISTCILPNIEAVSNVHNLNSVKESPHERMHRHIELAWAFSTVIGTLLFLAEVVLLCWVKFLPLKKQPGQPRPTSKPPASGAAANVSTSGITPGQAAAIASTTIMVPFGLIFIVFAVHFYRSLVSHKTDRQFQELNELAEFARLQDQLDHRGDHPLTPGSHYA
+  - protein:
+      id: [G, H, I, J, K, L, M, N, O, P, Q, R]
+      sequence: YAPEALQKWLQLTHEVEVQYYNIKKQNAEKQLLVAKEGAEKIKKKRNTLFGTFHVAHSSSLDDVDHKILTAKQALSEVTAALRERLHRWQQIEILCGFQIVNN
+
+templates:
+  - cif: ../structures/orai1_singlechain_template_truncated.cif
+    force: True
+    chain_id: [A]          # query chain to receive the template
+    template_id: [A] 
+
+constraints:
+
+  - pocket:
+      binder: G
+      contacts: [[A, 21], [A, 24], [A, 10], [A, 17], [A, 124]] #M71, L74, Y60 and N67
+      max_distance: 4.0
+      force: True
+
+  - contact:
+      token1: [A, 223] #L273
+      token2: [G, 68] #I409
+      max_distance: 5.3
+      force: True
+
+  - contact:
+      token1: [A, 223] #L273
+      token2: [G, 32] #L373
+      max_distance: 5.3
+      force: True
+
+  - contact:
+      token1: [A, 208] #Y258
+      token2: [G, 57] #H398
+      max_distance: 5.3
+      force: True
+
+  - contact:
+      token1: [A, 233] #Q283
+      token2: [G, 79] #T420
+      max_distance: 5.3
+      force: False
+
+  - contact:
+      token1: [A, 212] #V262
+      token2: [G, 52] #T393
+      max_distance: 4.0
+      force: True
+
+  - contact:
+      token1: [A, 231] #281
+      token2: [G, 29] #370
+      max_distance: 4.0
+      force: True
+

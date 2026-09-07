@@ -1,0 +1,62 @@
+Step 4: force-field energy of the rebuilt complex
+  force field amber14-all.xml + implicit/gbn2.xml, cutoff 1.2 nm, platform CPU
+
+============================================================================
+REFINED  (loop 105-113 grafted)   (data/orai1_complex_refined.pdb)
+============================================================================
+  prepared: 43902 atoms (22074 H added, 0 missing heavy atoms and 18 terminal atoms completed)   [142s]
+  restraints: 21402 heavy atoms at 10.0 kcal/mol/A^2, 426 free (res 105-113 of chains ABCDEF)
+
+  single point
+    potential energy      2,098,015.6 kcal/mol
+    inter-chain contacts < 2.0 A: 21, closest 0.92 A
+
+  minimizing (max 500 iterations, tolerance 10.0 kJ/mol/nm) ...
+    done in 192s
+
+  after restrained minimization
+    potential energy       -101,589.7 kcal/mol
+    change               -2,199,605.3 kcal/mol
+    residual restraint        2,431.2 kcal/mol
+    heavy-atom displacement: free window rmsd 0.73 A / max 2.07 A
+                             restrained  rmsd 0.15 A / max 2.59 A
+    inter-chain contacts < 2.0 A: 21 -> 0
+    -> data/orai1_complex_minimized.pdb
+    -> data/orai1_complex_minimized_heavy.pdb  (heavy atoms only)
+
+============================================================================
+BASELINE (pre-graft, orai1_model_0)   (data/orai1_model_0.pdb)
+============================================================================
+  prepared: 43902 atoms (22074 H added, 0 missing heavy atoms and 18 terminal atoms completed)   [130s]
+  restraints: 21402 heavy atoms at 10.0 kcal/mol/A^2, 426 free (res 105-113 of chains ABCDEF)
+
+  single point
+    potential energy     33,473,069.9 kcal/mol
+    inter-chain contacts < 2.0 A: 22, closest 0.92 A
+
+  minimizing (max 500 iterations, tolerance 10.0 kJ/mol/nm) ...
+    done in 165s
+
+  after restrained minimization
+    potential energy       -101,978.3 kcal/mol
+    change              -33,575,048.2 kcal/mol
+    residual restraint        2,414.7 kcal/mol
+    heavy-atom displacement: free window rmsd 0.47 A / max 1.93 A
+                             restrained  rmsd 0.15 A / max 1.47 A
+    inter-chain contacts < 2.0 A: 22 -> 0
+
+============================================================================
+Summary  (kcal/mol)
+============================================================================
+  structure                                single point      minimized         drop
+  REFINED  (loop 105-113 grafted)           2,098,015.6     -101,589.7 -2,199,605.3
+  BASELINE (pre-graft, orai1_model_0)      33,473,069.9     -101,978.3 -33,575,048.2
+
+  refined - baseline, single point : -31,375,054.4 kcal/mol
+  refined - baseline, minimized    : +388.5 kcal/mol
+
+  A positive difference is the strain the graft added; if it largely
+  disappears after minimization, the graft is relaxable and the loop
+  conformation is viable.
+
+Report written to data/energy_report.txt
