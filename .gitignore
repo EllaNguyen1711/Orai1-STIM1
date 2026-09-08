@@ -15,6 +15,3 @@ Thumbs.db
 # --- Stage 2: raw MODELLER candidate loop models / trace files ---
 # Only the best pose per chain (data/chain_*_loop_best.pdb) is tracked.
 02_modeller_loop_refinement/data/loop_models_chain_*/
-
-manuscript/
-Claude outputs/
