@@ -72,14 +72,7 @@ force-switch van der Waals, Langevin thermostat at 303.15 K), run with
 
 ## Data availability
 
-The CHARMM-GUI system files for the three systems above
-(`system/*/step5_input.{psf,pdb,crd}`) are included in this repository. Raw
-trajectories and the system files for the two off-cluster restraint
-conditions (`popc_0.1mCaCl2_seqfixed_180Apadding` and
-`syst_popc-memonly_0.1mMCaCl2_seqfixed[_largepadding]`) are not included —
-those systems were built and simulated on a separate compute cluster and
-are not archived locally. They can be rebuilt from the Stage 1/2 structures
-via the [CHARMM-GUI Membrane Builder](https://charmm-gui.org/?doc=input/membrane.bilayer2component),
-using the same lipid composition and ion concentration recorded in each
-`restraints/<condition>/` set, or made available on request (see repo-root
-README).
+The CHARMM-GUI system files for the three systems above (`system/*/step5_input.{psf,pdb,crd}`) 
+are included in this repository. All MD trajectories are deposited at [Zenodo]. 
+Each hexameric model was simulated in three independent replicas; the pentameric 
+model was simulated once. Frames were saved every 0.1 ns for all trajectories.  

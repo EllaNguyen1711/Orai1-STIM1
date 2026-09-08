@@ -1,7 +1,7 @@
 # Stage 1 — Boltz-2 structure prediction
 
 Predicts the Orai1 hexamer bound to the STIM1 CRAC-activation domain (CAD)
-in two passes with [Boltz-2](https://github.com/jwohlwend/boltz).
+in two passes with [LMI4Boltz](https://github.com/tlitfin/lmi4boltz).
 
 ## Contents
 
@@ -42,13 +42,5 @@ raw_boltz2_run_output/    (present locally, not tracked in git — see repo-root
 Confidence scores for both runs are in the corresponding
 `*_confidence.json` file (`confidence_score`, `ptm`/`iptm`, `plddt`, etc.).
 
-## Reproducing the raw output
-
-```bash
-pip install boltz2  # or the current Boltz-2 install method
-boltz predict configs/orai1_singlechain.yaml --out raw_boltz2_run_output/boltz_results_orai1.singlechain
-boltz predict configs/orai1_hexamer_cad_complex_restrained.yaml --out raw_boltz2_run_output/boltz_results_boltz2-A.trunc
-```
-
-(Exact CLI flags depend on the installed Boltz-2 version — see its own
+(Exact CLI flags depend on the installed [LMI4Boltz](https://github.com/tlitfin/lmi4boltz) — see its own
 documentation.)
