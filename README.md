@@ -120,6 +120,9 @@ These can be regenerated from the tracked inputs (Boltz-2 configs, the
 refined/minimized PDBs) following the instructions in each stage's
 `README.md`. They are also available on request — see [Contact](#contact).
 
+The figures (Figure 6, 7) in this manuscript depict the selected MD snapshot at 430 ns, 
+the structure for which can be found at `docs/structures/0430.pdb`. 
+
 ## Software
 
 - [Boltz-2](https://github.com/jwohlwend/boltz) — structure prediction
