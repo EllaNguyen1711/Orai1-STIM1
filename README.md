@@ -88,12 +88,9 @@ CaCl₂-containing solvent, CHARMM36 force field) and simulated with OpenMM.
 
 - `system/` — one subfolder per CHARMM-GUI-built system (`WT_boltz2`,
   `WT_refined_loop`, `boltz2.pentameric`), including the full CHARMM-GUI
-  structure/topology files (`step5_input.psf/.pdb/.crd`, ~200 MB per
-  system).
+  structure/topology files (`step5_input.psf/.pdb/.crd`).
 - `restraints/` — per-condition restraint definitions (protein position,
-  lipid position, dihedral) for five simulation conditions: wild type
-  (`boltz2.pentameric`), the Y208A mutant, and three POPC/CaCl₂
-  solvation/padding variants.
+  lipid position, dihedral) for different systems.
 - `toppar/`, `toppar.str` — CHARMM36/CGenFF force field parameter and
   topology files from CHARMM-GUI (third-party; see [License](#license)).
 - `inputs/` — CHARMM-GUI OpenMM input decks for six equilibration stages
@@ -111,9 +108,7 @@ CaCl₂-containing solvent, CHARMM36 force field) and simulated with OpenMM.
 
 ## Data availability (large files)
 
-The CHARMM-GUI-built membrane systems (`03_molecular_dynamics/system/*/step5_input.{psf,pdb,crd}`,
-~200 MB per system) are included in this repository, so cloning it downloads
-roughly 650 MB in total.
+The CHARMM-GUI-built membrane systems (`03_molecular_dynamics/system/*/step5_input.{psf,pdb,crd}`) are included in this repository.
 
 Two categories of raw pipeline intermediates are still excluded to keep
 that number from growing further:
