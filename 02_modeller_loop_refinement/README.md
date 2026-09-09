@@ -43,14 +43,9 @@ automatically by RMSD medoid instead of the pinned choice.
 PDBFixer completes missing atoms/hydrogens at pH 7.4 (no missing residues
 are built), then Amber14 + GBn2 implicit solvent is used for a single-point
 energy and a restrained minimization (heavy atoms outside the rebuilt
-window harmonically restrained). See `data/energy_report.txt` for full
-numbers; in short, the loop graft's large single-point energy penalty
-(~3.1 × 10⁷ kcal/mol relative to the pre-graft baseline) is almost entirely
-recovered by minimization (final difference: +388.5 kcal/mol), and
-inter-chain steric clashes drop from 21 to 0 in both structures.
+window harmonically restrained).
 
 ## Data availability
 
-`data/loop_models_chain_{A..F}/` (raw MODELLER candidate models and trace
-files, ~42 MB total) are kept locally but excluded from git — see the
+`data/loop_models_chain_{A..F}/` are kept locally but excluded from git — see the
 repo-root README. Re-running step 2 regenerates them.

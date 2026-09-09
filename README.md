@@ -49,9 +49,8 @@ stage. The short version of the pipeline is below.
    (`configs/orai1_hexamer_cad_complex_restrained.yaml` →
    `structures/orai1_hexamer_cad_complex_model.cif`).
 
-The full raw Boltz-2 run output (MSA search results, PAE/PDE confidence
-matrices, Lightning logs) is kept locally under `raw_boltz2_run_output/` but
-is **not** tracked in this repository — see [Data availability](#data-availability-large-files).
+The full raw Boltz-2 run output is **not** tracked in this repository — 
+see [Data availability](#data-availability-large-files).
 
 ### Stage 2 — MODELLER loop refinement (`02_modeller_loop_refinement/`)
 
@@ -66,19 +65,6 @@ segment as a flexible loop and reassembles the complex:
 | `02_assemble_refined_loop.py` | Select one representative loop pose (by RMSD medoid across chains, or a pinned choice) and graft it onto all six chains, preserving the hexamer's C6 symmetry and the Orai1–CAD interfaces. |
 | `03_rebuild_complex.py` | Merge the loop-refined Orai1 hexamer with the untouched CAD chains back into a single complex. |
 | `04_minimize_energy.py` | PDBFixer + OpenMM (Amber14/GBn2 implicit solvent) restrained minimization of the rebuilt complex, with a before/after energy comparison against the pre-refinement baseline. |
-
-Result (from `data/energy_report.txt`): the loop graft is relaxable — after
-restrained minimization the refined and baseline structures converge to
-comparable potential energies (−101,589.7 vs. −101,978.3 kcal/mol; a
-difference of +388.5 kcal/mol, essentially noise relative to the >30,000,000
-kcal/mol single-point difference before minimization), and inter-chain
-steric clashes drop from 21 to 0.
-
-Bulk MODELLER working files (10 raw candidate models plus internal trace
-files per chain, ~42 MB) are kept locally under `data/loop_models_chain_*/`
-but are not tracked in git; only the best pose per chain
-(`data/chain_*_loop_best.pdb`) and the final assembled/minimized structures
-are versioned.
 
 ### Stage 3 — Molecular dynamics (`03_molecular_dynamics/`)
 
